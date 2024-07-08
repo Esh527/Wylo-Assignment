@@ -1,0 +1,80 @@
+.post-item {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space between content and delete icon */
+  position: relative;
+}
+
+.user-image, .initials {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  margin-right: 15px; /* Add space between image/initials and text */
+}
+
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.initials {
+  font-size: 20px;
+  background-color: #007bff; /* Ensure a solid background color */
+}
+
+.post-content {
+  flex-grow: 1; /* Allow text to take up remaining space */
+  text-align: center; /* Center the text */
+}
+
+.post-item h2 {
+  margin: 0;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.post-item p {
+  color: #666;
+  margin: 10px 0 0;
+}
+
+.post-item button {
+  padding: 5px 10px;
+  background-color: #ffc107;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.post-item button:hover {
+  background-color: #e0a800;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 24px;
+  margin-left: 15px; /* Add space between content and delete icon */
+  transition: color 0.2s ease;
+}
+
+.delete-icon:hover {
+  color: #b21f2d;
+}

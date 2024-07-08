@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PostsDisplay from './Components/PostsDisplayComponent/PostsDisplay';
+import CreatePost from './Components/CreatePostComponent/CreatePost';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState(() => {
+    // Initialize posts from localStorage if available
+    const savedPosts = localStorage.getItem('posts');
+    return savedPosts ? JSON.parse(savedPosts) : [];
+  });
+
+  useEffect(() => {
+    // Save posts to localStorage whenever posts state changes
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }, [posts]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<PostsDisplay posts={posts} setPosts={setPosts} />} />
+          <Route path="/create" element={<CreatePost posts={posts} setPosts={setPosts} />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
