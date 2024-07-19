@@ -12,7 +12,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    // Save posts to localStorage whenever posts state changes
+    // Save posts to localStorage whenever posts state gets changes
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
